@@ -1,0 +1,205 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{1D882460-213C-476B-B928-9A1AFDF2BAF7}</ProjectGuid>
+    <Keyword>QtVS_v304</Keyword>
+    <WindowsTargetPlatformVersion Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">10.0.19041.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">10.0.19041.0</WindowsTargetPlatformVersion>
+    <QtMsBuild Condition="'$(QtMsBuild)'=='' OR !Exists('$(QtMsBuild)\qt.targets')">$(MSBuildProjectDirectory)\QtMsBuild</QtMsBuild>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt_defaults.props')">
+    <Import Project="$(QtMsBuild)\qt_defaults.props" />
+  </ImportGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="QtSettings">
+    <QtInstall>msvc2019_64</QtInstall>
+    <QtModules>core;opengl;network;gui;widgets;multimediawidgets;openglextensions</QtModules>
+    <QtBuildConfig>debug</QtBuildConfig>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="QtSettings">
+    <QtInstall>msvc2019_64</QtInstall>
+    <QtModules>core;gui;widgets</QtModules>
+    <QtBuildConfig>release</QtBuildConfig>
+  </PropertyGroup>
+  <Target Name="QtMsBuildNotFound" BeforeTargets="CustomBuild;ClCompile" Condition="!Exists('$(QtMsBuild)\qt.targets') or !Exists('$(QtMsBuild)\qt.props')">
+    <Message Importance="High" Text="QtMsBuild: could not locate qt.targets, qt.props; project may not build correctly." />
+  </Target>
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Label="Shared" />
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(QtMsBuild)\Qt.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(QtMsBuild)\Qt.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <OutDir>..\..\..\bin\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>..\..\..\include;..\ui;.\;..\..\OwlPlay;..\..\OwlChat;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>..\..\..\lib;..\..\OwlPlay;..\..\OwlChat</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>..\ui;.\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="Configuration">
+    <ClCompile>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="Configuration">
+    <ClCompile>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <Optimization>MaxSpeed</Optimization>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\OwlChat\ChatMessage.cpp" />
+    <ClCompile Include="..\..\OwlChat\OwlChat.cpp" />
+    <ClCompile Include="..\..\OwlPlay\OwlAudioPlay.cpp" />
+    <ClCompile Include="..\..\OwlPlay\OwlAudioThread.cpp" />
+    <ClCompile Include="..\..\OwlPlay\OwlDecode.cpp" />
+    <ClCompile Include="..\..\OwlPlay\OwlDecodeThread.cpp" />
+    <ClCompile Include="..\..\OwlPlay\OwlDemux.cpp" />
+    <ClCompile Include="..\..\OwlPlay\OwlDemuxThread.cpp" />
+    <ClCompile Include="..\..\OwlPlay\OwlPlay.cpp" />
+    <ClCompile Include="..\..\OwlPlay\OwlResample.cpp" />
+    <ClCompile Include="..\..\OwlPlay\OwlSlider.cpp" />
+    <ClCompile Include="..\..\OwlPlay\OwlVideoThread.cpp" />
+    <ClCompile Include="..\..\OwlPlay\OwlVideoWidget.cpp" />
+    <ClCompile Include="Class.cpp" />
+    <ClCompile Include="ClassroomControl.cpp" />
+    <ClCompile Include="ClassroomWindow.cpp" />
+    <ClCompile Include="ClientSocket.cpp">
+      <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">input</DynamicSource>
+      <QtMocFileName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(Filename).moc</QtMocFileName>
+      <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Release|x64'">input</DynamicSource>
+      <QtMocFileName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(Filename).moc</QtMocFileName>
+    </ClCompile>
+    <ClCompile Include="Course.cpp" />
+    <ClCompile Include="GetInfoControl.cpp" />
+    <ClCompile Include="HomepageControl.cpp" />
+    <ClCompile Include="HomepageWinodw.cpp" />
+    <ClCompile Include="InfoControl.cpp" />
+    <ClCompile Include="LoginControl.cpp" />
+    <ClCompile Include="LoginWindow.cpp" />
+    <ClCompile Include="OwlLiveWindow.cpp" />
+    <ClCompile Include="Password.cpp" />
+    <ClCompile Include="RegisterControl.cpp" />
+    <ClCompile Include="RegisterWindow.cpp" />
+    <ClCompile Include="RemoteAttendClassControl.cpp" />
+    <ClCompile Include="SetInfoControl.cpp" />
+    <ClCompile Include="Student.cpp" />
+    <QtMoc Include="WindowsControl.h" />
+    <ClCompile Include="WindowsControl.cpp" />
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="..\..\OwlChat\ChatMessage.h" />
+    <QtMoc Include="..\..\OwlChat\OwlChat.h" />
+    <ClInclude Include="..\..\OwlPlay\IVideoCall.h" />
+    <ClInclude Include="..\..\OwlPlay\OwlAudioPlay.h" />
+    <ClInclude Include="..\..\OwlPlay\OwlAudioThread.h" />
+    <ClInclude Include="..\..\OwlPlay\OwlDecode.h" />
+    <ClInclude Include="..\..\OwlPlay\OwlDecodeThread.h" />
+    <ClInclude Include="..\..\OwlPlay\OwlDemux.h" />
+    <ClInclude Include="..\..\OwlPlay\OwlDemuxThread.h" />
+    <QtMoc Include="..\..\OwlPlay\OwlPlay.h" />
+    <ClInclude Include="..\..\OwlPlay\OwlResample.h" />
+    <QtMoc Include="..\..\OwlPlay\OwlSlider.h" />
+    <ClInclude Include="..\..\OwlPlay\OwlVideoThread.h" />
+    <QtMoc Include="..\..\OwlPlay\OwlVideoWidget.h" />
+    <ClInclude Include="Class.h" />
+    <QtMoc Include="ClassroomControl.h" />
+    <QtMoc Include="ClassroomWindow.h" />
+    <ClInclude Include="Course.h" />
+    <QtMoc Include="OwlLiveWindow.h" />
+    <QtMoc Include="HomepageControl.h" />
+    <QtMoc Include="HomepageWinodw.h" />
+    <QtMoc Include="LoginControl.h" />
+    <QtMoc Include="LoginWindow.h" />
+    <QtMoc Include="RegisterControl.h" />
+    <QtMoc Include="RegisterWindow.h" />
+    <QtMoc Include="GetInfoControl.h" />
+    <ClInclude Include="Password.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="SetInfoControl.h" />
+    <ClInclude Include="Types.h" />
+    <QtMoc Include="ClientSocket.h" />
+    <QtMoc Include="InfoControl.h" />
+    <QtMoc Include="RemoteAttendClassControl.h" />
+    <QtMoc Include="Student.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\config\config.ini" />
+    <None Include="cpp.hint" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtRcc Include="..\qrc\ui.qrc" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtUic Include="..\ui\Chat.ui" />
+    <QtUic Include="..\ui\ClassMembers.ui" />
+    <QtUic Include="..\ui\Classroom.ui" />
+    <QtUic Include="..\ui\CourseCard.ui" />
+    <QtUic Include="..\ui\CourseDetails.ui" />
+    <QtUic Include="..\ui\Homepage.ui" />
+    <QtUic Include="..\ui\JoinCourseCard.ui" />
+    <QtUic Include="..\ui\JoinCourseForm.ui" />
+    <QtUic Include="..\ui\Login.ui" />
+    <QtUic Include="..\ui\OwlChat.ui" />
+    <QtUic Include="..\ui\OwlPlay.ui" />
+    <QtUic Include="..\ui\Register.ui" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
+    <Import Project="$(QtMsBuild)\qt.targets" />
+  </ImportGroup>
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
