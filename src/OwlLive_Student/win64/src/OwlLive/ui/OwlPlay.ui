@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>OwlPlayClass</class>
+ <widget class="QWidget" name="OwlPlayClass">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1280</width>
+    <height>720</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>OwlPlay</string>
+  </property>
+  <widget class="OwlVideoWidget" name="video">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1280</width>
+     <height>720</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="open">
+   <property name="geometry">
+    <rect>
+     <x>90</x>
+     <y>580</y>
+     <width>93</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="text">
+    <string>Open</string>
+   </property>
+  </widget>
+  <widget class="OwlSlider" name="play_pos">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>640</y>
+     <width>1141</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="maximum">
+    <number>999</number>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="is_play">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>580</y>
+     <width>93</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Play</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pull">
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>530</y>
+     <width>141</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Pull</string>
+   </property>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>OwlVideoWidget</class>
+   <extends>QOpenGLWidget</extends>
+   <header>OwlVideoWidget.h</header>
+   <slots>
+    <slot>Pull()</slot>
+   </slots>
+  </customwidget>
+  <customwidget>
+   <class>OwlSlider</class>
+   <extends>QSlider</extends>
+   <header>OwlSlider.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>is_play</sender>
+   <signal>clicked()</signal>
+   <receiver>OwlPlayClass</receiver>
+   <slot>PlayOrPause()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>241</x>
+     <y>597</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>226</x>
+     <y>827</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>play_pos</sender>
+   <signal>sliderPressed()</signal>
+   <receiver>OwlPlayClass</receiver>
+   <slot>SliderPress()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>379</x>
+     <y>651</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>372</x>
+     <y>819</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>play_pos</sender>
+   <signal>sliderReleased()</signal>
+   <receiver>OwlPlayClass</receiver>
+   <slot>SliderRelease()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>407</x>
+     <y>645</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>393</x>
+     <y>821</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pull</sender>
+   <signal>clicked()</signal>
+   <receiver>OwlPlayClass</receiver>
+   <slot>Pull()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>193</x>
+     <y>554</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>192</x>
+     <y>762</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>open</sender>
+   <signal>clicked()</signal>
+   <receiver>OwlPlayClass</receiver>
+   <slot>OpenVideo()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>138</x>
+     <y>594</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>139</x>
+     <y>736</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>Open()</slot>
+  <slot>PlayOrPause()</slot>
+  <slot>SliderPress()</slot>
+  <slot>SliderRelease()</slot>
+  <slot>Pull()</slot>
+  <slot>OpenVideo()</slot>
+ </slots>
+</ui>

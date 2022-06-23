@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Homepage</class>
+ <widget class="QWidget" name="Homepage">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1120</width>
+    <height>770</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1120</width>
+    <height>770</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>1120</width>
+    <height>770</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>OwlLive</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">#scrollAreaWidgetContents{
+background-color:#c49293
+}</string>
+  </property>
+  <widget class="QScrollArea" name="course_list">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>50</y>
+     <width>1120</width>
+     <height>720</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::NoFrame</enum>
+   </property>
+   <property name="verticalScrollBarPolicy">
+    <enum>Qt::ScrollBarAsNeeded</enum>
+   </property>
+   <property name="widgetResizable">
+    <bool>true</bool>
+   </property>
+   <widget class="QWidget" name="scrollAreaWidgetContents">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>1120</width>
+      <height>720</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <widget class="QStackedWidget" name="bar_stack">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>1120</width>
+       <height>720</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>1120</width>
+       <height>720</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>1120</width>
+       <height>720</height>
+      </size>
+     </property>
+     <property name="currentIndex">
+      <number>1</number>
+     </property>
+     <widget class="QWidget" name="course_page">
+      <widget class="QWidget" name="gridLayoutWidget">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>1134</width>
+         <height>734</height>
+        </rect>
+       </property>
+       <layout class="QGridLayout" name="course_layout" rowstretch="0" columnstretch="0">
+        <property name="leftMargin">
+         <number>10</number>
+        </property>
+        <property name="topMargin">
+         <number>10</number>
+        </property>
+        <property name="rightMargin">
+         <number>10</number>
+        </property>
+        <property name="bottomMargin">
+         <number>10</number>
+        </property>
+        <property name="spacing">
+         <number>10</number>
+        </property>
+       </layout>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="courseware_page"/>
+     <widget class="QWidget" name="resource_page"/>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QWidget" name="menubar" native="true">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1120</width>
+     <height>50</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <widget class="QPushButton" name="course_bar">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>110</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>黑体</family>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:none
+QPushButton:pressed
+{
+    background-color: rgb(255, 255, 0);
+    border:2px solid #5F92B2; 
+    border-radius:5px; 
+    color:black; 
+}
+QPushButton:checked{
+color:#3288E8;
+border-color: #3288E8;
+}</string>
+    </property>
+    <property name="text">
+     <string>课程</string>
+    </property>
+    <property name="checkable">
+     <bool>true</bool>
+    </property>
+    <property name="autoExclusive">
+     <bool>true</bool>
+    </property>
+    <property name="autoDefault">
+     <bool>false</bool>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="courseware_bar">
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>0</y>
+      <width>110</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>黑体</family>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:none
+QPushButton:pressed
+{
+    background-color: rgb(255, 255, 0);
+    border:2px solid #5F92B2; 
+    border-radius:5px; 
+    color:black; 
+}
+QPushButton:checked{
+color:#3288E8;
+border-color: #3288E8;
+}</string>
+    </property>
+    <property name="text">
+     <string>作业</string>
+    </property>
+    <property name="checkable">
+     <bool>true</bool>
+    </property>
+    <property name="autoExclusive">
+     <bool>true</bool>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="resource_bar">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>0</y>
+      <width>150</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>黑体</family>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:none
+QPushButton:pressed
+{
+    background-color: rgb(255, 255, 0);
+    border:2px solid #5F92B2; 
+    border-radius:5px; 
+    color:black; 
+}
+QPushButton:checked{
+color:#3288E8;
+border-color: #3288E8;
+}</string>
+    </property>
+    <property name="text">
+     <string>课堂回放</string>
+    </property>
+    <property name="checkable">
+     <bool>true</bool>
+    </property>
+    <property name="autoExclusive">
+     <bool>true</bool>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <zorder>courseware_bar</zorder>
+   <zorder>resource_bar</zorder>
+   <zorder>course_bar</zorder>
+  </widget>
+  <widget class="QFrame" name="menubar_background">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1120</width>
+     <height>50</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:#b08384</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+  </widget>
+  <zorder>course_list</zorder>
+  <zorder>menubar_background</zorder>
+  <zorder>menubar</zorder>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

@@ -1,0 +1,14 @@
+<RCC>
+  <qresource prefix="homepage"/>
+  <qresource prefix="all">
+    <file>assets/Icon.png</file>
+  </qresource>
+  <qresource prefix="login">
+    <file>assets/logo.png</file>
+  </qresource>
+  <qresource prefix="classroom">
+    <file>assets/student_icon.png</file>
+    <file>assets/teacher_icon.png</file>
+    <file>assets/avatar.png</file>
+  </qresource>
+</RCC>

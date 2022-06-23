@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Login</class>
+ <widget class="QWidget" name="Login">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>440</width>
+    <height>660</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>440</width>
+    <height>660</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>440</width>
+    <height>660</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Login</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">color: rgb(200, 200, 200);
+background-color: rgb(10, 10, 10);R</string>
+  </property>
+  <widget class="QLineEdit" name="id">
+   <property name="geometry">
+    <rect>
+     <x>45</x>
+     <y>170</y>
+     <width>350</width>
+     <height>50</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLineEdit {
+	border: 2px solid rgb(45, 45, 45);
+	border-radius: 5px;
+	padding: 15px;
+	background-color: rgb(30, 30, 30);	
+	color: rgb(100, 100, 100);
+}
+QLineEdit:hover {
+	border: 2px solid rgb(55, 55, 55);
+}
+QLineEdit:focus {
+	border: 2px solid rgb(255, 207, 0);	
+	color: rgb(200, 200, 200);
+}</string>
+   </property>
+   <property name="placeholderText">
+    <string>请输入账号</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="login">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>360</y>
+     <width>240</width>
+     <height>60</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {	
+	background-color: rgb(50, 50, 50);
+	border: 2px solid rgb(60, 60, 60);
+	border-radius: 5px;
+}
+QPushButton:hover {	
+	background-color: rgb(60, 60, 60);
+	border: 2px solid rgb(70, 70, 70);
+}
+QPushButton:pressed {	
+	background-color: rgb(255, 144, 80);
+	border: 2px solid rgb(255, 165, 24);	
+	color: rgb(35, 35, 0);
+}</string>
+   </property>
+   <property name="text">
+    <string>登录</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="retrieve_password">
+   <property name="geometry">
+    <rect>
+     <x>250</x>
+     <y>490</y>
+     <width>90</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton
+{
+	border: 3px solid rgb(100, 100, 100);
+	width: 15px;
+	height: 15px;
+	border-radius: 10px;	
+	background-color: rgb(135, 135, 135);
+}
+ 
+QPushButton:pressed
+{
+    background-color: rgb(255, 255, 0);
+    border:2px solid #5F92B2; 
+    border-radius:5px; 
+    color:black; 
+}
+</string>
+   </property>
+   <property name="text">
+    <string>找回密码</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="remember_password">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>490</y>
+     <width>90</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QCheckBox::indicator {
+	border: 3px solid rgb(100, 100, 100);
+	width: 15px;
+	height: 15px;
+	border-radius: 10px;	
+	background-color: rgb(135, 135, 135);
+}
+QCheckBox::indicator:checked {
+	border: 3px solid rgb(255, 205, 0);
+	background-color: rgb(255, 255, 0);
+}</string>
+   </property>
+   <property name="text">
+    <string>记住密码</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="auto_login">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>540</y>
+     <width>90</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QCheckBox::indicator {
+	border: 3px solid rgb(100, 100, 100);
+	width: 15px;
+	height: 15px;
+	border-radius: 10px;	
+	background-color: rgb(135, 135, 135);
+}
+QCheckBox::indicator:checked {
+	border: 3px solid rgb(255, 205, 0);
+	background-color: rgb(255, 255, 0);
+}</string>
+   </property>
+   <property name="text">
+    <string>自动登录</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="password">
+   <property name="geometry">
+    <rect>
+     <x>45</x>
+     <y>260</y>
+     <width>350</width>
+     <height>50</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLineEdit {
+	border: 2px solid rgb(45, 45, 45);
+	border-radius: 5px;
+	padding: 15px;
+	background-color: rgb(30, 30, 30);	
+	color: rgb(100, 100, 100);
+}
+QLineEdit:hover {
+	border: 2px solid rgb(55, 55, 55);
+}
+QLineEdit:focus {
+	border: 2px solid rgb(255, 207, 0);	
+	color: rgb(200, 200, 200);
+}</string>
+   </property>
+   <property name="inputMethodHints">
+    <set>Qt::ImhHiddenText|Qt::ImhNoAutoUppercase|Qt::ImhNoPredictiveText|Qt::ImhSensitiveData</set>
+   </property>
+   <property name="echoMode">
+    <enum>QLineEdit::Password</enum>
+   </property>
+   <property name="placeholderText">
+    <string>请输入密码</string>
+   </property>
+   <property name="cursorMoveStyle">
+    <enum>Qt::LogicalMoveStyle</enum>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="register_id">
+   <property name="geometry">
+    <rect>
+     <x>250</x>
+     <y>540</y>
+     <width>90</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton
+{
+	border: 3px solid rgb(100, 100, 100);
+	width: 15px;
+	height: 15px;
+	border-radius: 10px;	
+	background-color: rgb(135, 135, 135);
+}
+ 
+QPushButton:pressed
+{
+    background-color: rgb(255, 255, 0);
+    border:2px solid #5F92B2; 
+    border-radius:5px; 
+    color:black; 
+}
+</string>
+   </property>
+   <property name="text">
+    <string>注册账号</string>
+   </property>
+  </widget>
+  <widget class="QWidget" name="logo" native="true">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>401</width>
+     <height>141</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-image:url(:/login/assets/logo.png);</string>
+   </property>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources>
+  <include location="../qrc/ui.qrc"/>
+ </resources>
+ <connections/>
+ <slots>
+  <slot>OpenRegister()</slot>
+ </slots>
+</ui>

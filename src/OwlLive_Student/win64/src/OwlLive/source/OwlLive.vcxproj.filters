@@ -1,0 +1,307 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>qrc;rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Form Files">
+      <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
+      <Extensions>ui</Extensions>
+    </Filter>
+    <Filter Include="Translation Files">
+      <UniqueIdentifier>{639EADAA-A684-42e4-A9AD-28FC9BCB8F7C}</UniqueIdentifier>
+      <Extensions>ts</Extensions>
+    </Filter>
+    <Filter Include="Config Files">
+      <UniqueIdentifier>{82d05398-b157-4f85-bc6c-e5c87c947334}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OwlPlay">
+      <UniqueIdentifier>{c0edf061-11b2-40b8-89f3-6066205b560c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OwlPlay\Header Files">
+      <UniqueIdentifier>{da366bf5-fae2-481b-be09-c927027eac84}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OwlPlay\Source Files">
+      <UniqueIdentifier>{2e8ace70-0818-42cf-a2df-6f63d4cb22a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OwlChat">
+      <UniqueIdentifier>{0b26f44a-76a4-4643-beca-a5d574e63550}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OwlChat\Header Files">
+      <UniqueIdentifier>{a5f2c887-eafe-4b72-bacb-368429bb200f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OwlChat\Source Files">
+      <UniqueIdentifier>{fd035431-b337-42fa-9fc6-6c3efae3f457}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="WindowsControl.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClCompile Include="WindowsControl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <QtMoc Include="RemoteAttendClassControl.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="OwlLiveWindow.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="..\..\OwlPlay\OwlPlay.h">
+      <Filter>OwlPlay\Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="..\..\OwlPlay\OwlSlider.h">
+      <Filter>OwlPlay\Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="LoginWindow.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="RegisterWindow.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="HomepageWinodw.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ClassroomWindow.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="RegisterControl.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="LoginControl.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ClassroomControl.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="HomepageControl.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="GetInfoControl.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="..\..\OwlPlay\OwlVideoWidget.h">
+      <Filter>OwlPlay\Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="..\..\OwlChat\ChatMessage.h">
+      <Filter>OwlChat\Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="..\..\OwlChat\OwlChat.h">
+      <Filter>OwlChat\Header Files</Filter>
+    </QtMoc>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Student.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RemoteAttendClassControl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="InfoControl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ClientSocket.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Course.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Class.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OwlLiveWindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\OwlPlay\OwlAudioPlay.cpp">
+      <Filter>OwlPlay\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\OwlPlay\OwlAudioThread.cpp">
+      <Filter>OwlPlay\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\OwlPlay\OwlDecode.cpp">
+      <Filter>OwlPlay\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\OwlPlay\OwlDecodeThread.cpp">
+      <Filter>OwlPlay\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\OwlPlay\OwlDemux.cpp">
+      <Filter>OwlPlay\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\OwlPlay\OwlDemuxThread.cpp">
+      <Filter>OwlPlay\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\OwlPlay\OwlPlay.cpp">
+      <Filter>OwlPlay\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\OwlPlay\OwlResample.cpp">
+      <Filter>OwlPlay\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\OwlPlay\OwlSlider.cpp">
+      <Filter>OwlPlay\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\OwlPlay\OwlVideoThread.cpp">
+      <Filter>OwlPlay\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\OwlPlay\OwlVideoWidget.cpp">
+      <Filter>OwlPlay\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LoginWindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LoginControl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RegisterWindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RegisterControl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HomepageWinodw.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HomepageControl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ClassroomWindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ClassroomControl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GetInfoControl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SetInfoControl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\OwlChat\ChatMessage.cpp">
+      <Filter>OwlChat\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\OwlChat\OwlChat.cpp">
+      <Filter>OwlChat\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Password.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Types.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Course.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Class.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\OwlPlay\IVideoCall.h">
+      <Filter>OwlPlay\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\OwlPlay\OwlAudioPlay.h">
+      <Filter>OwlPlay\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\OwlPlay\OwlAudioThread.h">
+      <Filter>OwlPlay\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\OwlPlay\OwlDecode.h">
+      <Filter>OwlPlay\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\OwlPlay\OwlDecodeThread.h">
+      <Filter>OwlPlay\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\OwlPlay\OwlDemux.h">
+      <Filter>OwlPlay\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\OwlPlay\OwlDemuxThread.h">
+      <Filter>OwlPlay\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\OwlPlay\OwlResample.h">
+      <Filter>OwlPlay\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\OwlPlay\OwlVideoThread.h">
+      <Filter>OwlPlay\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SetInfoControl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Password.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="ClientSocket.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="InfoControl.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Student.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cpp.hint" />
+    <None Include="..\config\config.ini">
+      <Filter>Config Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <QtRcc Include="..\qrc\ui.qrc">
+      <Filter>Resource Files</Filter>
+    </QtRcc>
+  </ItemGroup>
+  <ItemGroup>
+    <QtUic Include="..\ui\Chat.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="..\ui\ClassMembers.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="..\ui\Classroom.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="..\ui\CourseCard.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="..\ui\CourseDetails.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="..\ui\Homepage.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="..\ui\JoinCourseCard.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="..\ui\JoinCourseForm.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="..\ui\Login.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="..\ui\OwlChat.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="..\ui\OwlPlay.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="..\ui\Register.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+  </ItemGroup>
+</Project>
