@@ -1,15 +1,17 @@
-﻿// 获取音视频数据的时间戳
-#ifndef AVTIMEBASE_H
+﻿#ifndef AVTIMEBASE_H
 #define AVTIMEBASE_H
 #include <stdint.h>
 #ifdef _WIN32
 #include <winsock2.h>
 #include <time.h>
 #else
+#include <stdlib.h>
 #include <sys/time.h>
 #endif
 #include "dlog.h"
 namespace LIVE {
+
+
 class AVPublishTime {
  public:
   typedef enum PTS_STRATEGY {
@@ -33,7 +35,7 @@ class AVPublishTime {
 
   void set_audio_frame_duration(const double frame_duration) {
     audio_frame_duration_ = frame_duration;
-    audio_frame_threshold_ = (uint32_t)(frame_duration / 2);
+    audio_frame_threshold_ = (uint32_t)(frame_duration * 2);
   }
 
   void set_video_frame_duration(const double frame_duration) {
@@ -44,19 +46,19 @@ class AVPublishTime {
   uint32_t get_audio_pts() {
     int64_t pts = getCurrentTimeMsec() - start_time_;
     if (PTS_RECTIFY == audio_pts_strategy_) {
-      uint32_t diff = (uint32_t)abs(pts - (long long)(audio_pre_pts_ + audio_frame_duration_));
-      if (diff < audio_frame_threshold_) {
-        // 误差在阈值范围内, 保持帧间隔
-        audio_pre_pts_ += audio_frame_duration_; //帧间隔累加，浮点数
-        LogInfo("get_audio_pts1:%u RECTIFY:%0.0lf", diff, audio_pre_pts_);
-        return (uint32_t)(((int64_t)audio_pre_pts_) % 0xffffffff);
-      }
-      audio_pre_pts_ = (double)pts; // 误差超过半帧，重新调整pts
-      LogInfo("get_audio_pts2:%u, RECTIFY:%0.0lf", diff, audio_pre_pts_);
+//            uint32_t diff = (uint32_t)abs(pts - (long long)(audio_pre_pts_ + audio_frame_duration_));
+//            if(diff < audio_frame_threshold_) {
+//                // 误差在阈值范围内, 保持帧间隔
+//                audio_pre_pts_ += audio_frame_duration_; //帧间隔累加，浮点数
+//                LogDebug("get_audio_pts1:%u, RECTIFY:%0.0lf", diff, audio_pre_pts_);
+//                return (uint32_t)(((int64_t)audio_pre_pts_)%0xffffffff);
+//            }
+//            audio_pre_pts_ = (double)pts; // 误差超过半帧，重新调整pts
+//            LogDebug("get_audio_pts2:%u, RECTIFY:%0.0lf", diff, audio_pre_pts_);
       return (uint32_t)(pts % 0xffffffff);
     } else {
       audio_pre_pts_ = (double)pts; // 误差超过半帧，重新调整pts
-      LogInfo("get_audio_pts REAL_TIME:%0.0lf", audio_pre_pts_);
+      LogDebug("get_audio_pts REAL_TIME:%0.0lf", audio_pre_pts_);
       return (uint32_t)(pts % 0xffffffff);
     }
   }
@@ -68,15 +70,15 @@ class AVPublishTime {
       if (diff < video_frame_threshold_) {
         // 误差在阈值范围内, 保持帧间隔
         video_pre_pts_ += video_frame_duration_;
-        LogInfo("get_video_pts1:%u RECTIFY:%0.0lf", diff, video_pre_pts_);
+        LogDebug("get_video_pts1:%u RECTIFY:%0.0lf", diff, video_pre_pts_);
         return (uint32_t)(((int64_t)video_pre_pts_) % 0xffffffff);
       }
       video_pre_pts_ = (double)pts; // 误差超过半帧，重新调整pts
-      LogInfo("get_video_pts2:%u RECTIFY:%0.0lf", diff, video_pre_pts_);
+      LogDebug("get_video_pts2:%u RECTIFY:%0.0lf", diff, video_pre_pts_);
       return (uint32_t)(pts % 0xffffffff);
     } else {
       video_pre_pts_ = (double)pts; // 误差超过半帧，重新调整pts
-      LogInfo("get_video_pts REAL_TIME:%0.0lf", video_pre_pts_);
+      LogDebug("get_video_pts REAL_TIME:%0.0lf", video_pre_pts_);
       return (uint32_t)(pts % 0xffffffff);
     }
   }
@@ -290,4 +292,3 @@ class AVPlayTime {
 
 }
 #endif // AVTIMEBASE_H
-

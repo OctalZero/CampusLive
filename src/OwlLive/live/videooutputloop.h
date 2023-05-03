@@ -12,7 +12,7 @@ class VideoOutputLoop : public CommonLooper {
  public:
   VideoOutputLoop(AVSync* avsync, PacketQueue* packet_queue, FrameQueue* frame_queue);
   virtual ~VideoOutputLoop() {
-
+    Stop();
   }
   RET_CODE Init(const Properties& properties);
   // 负责输出

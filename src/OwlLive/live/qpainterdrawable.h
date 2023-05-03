@@ -34,7 +34,6 @@ class QPainterDrawable : public QQuickPaintedItem {
   VideoFrame dst_video_frame_;
   QMutex m_mutex;
   ImageScaler* img_scaler_ = NULL;
-  QTimer* timer_ = nullptr;
 };
 
 #endif // QPAINTERDRAWABLE_H

@@ -6,12 +6,15 @@ import FluentUI 1.0
 import Controller 1.0
 
 FluScrollablePage{
+    id: window
     leftPadding:10
     rightPadding:0
     bottomPadding:20
 
     property var coursePageRegister: registerForPageResult("/joinCourse")
     property var courses: []
+    property string courseId: ""
+    property bool isStudent
 
     // 更新界面的课程列表
     function updateList() {
@@ -29,16 +32,34 @@ FluScrollablePage{
     CourseController {
         id: course_controller
         onUpdateCoursesSuccess: {
-            courses = course_controller.getCourses()  // 存储课程列表
-            model_course.clear() // 清空原来的课程
-            updateList()
+            if (isStudent) {
+                courses = course_controller.getCourses()  // 存储课程列表
+                model_course.clear() // 清空原来的课程
+                updateList()
+            }
         }
+
+//        onJoinClassSuccess: {
+//            if (isStudent) {
+//                FluApp.navigate("/live", {courseId:courseId, streamAddress:course_controller.getStreamAddress()})
+//            }
+//        }
+    }
+
+    LoginController {
+        id: login_controller
     }
 
     Component.onCompleted: {
-        course_controller.SendUpdateCourses();
+        if (login_controller.getIdentification() === "student") {
+            isStudent = true
+            course_controller.SendUpdateCourses();
+        }
+        else {
+            isStudent = false
+            showError("当前账户身份为教师，暂无使用该功能权限！")
+        }
     }
-
 
     // 从加入课程界面获取返回数据
     Connections{
@@ -56,17 +77,18 @@ FluScrollablePage{
     }
 
     // 获取选中课程的流地址
-    function getStreamUrl(id) {
-        for (var i = 0; i < courses.length; i++) {
-            var course = courses[i]
-            if (course["id"] === id) {
-                return course["stream_address"];
-            }
-        }
-    }
+//    function getStreamUrl(id) {
+//        for (var i = 0; i < courses.length; i++) {
+//            var course = courses[i]
+//            if (course["id"] === id) {
+//                return course["stream_address"];
+//            }
+//        }
+//    }
 
     FluFilledButton {
         id: create_course
+        disabled: !isStudent
         text: "加入课程"
         onClicked:  {
             coursePageRegister.launch()
@@ -129,12 +151,11 @@ FluScrollablePage{
                     }
 
                     FluFilledButton {
-                        id: create_course
                         text: "进入课堂"
                         onClicked: {
-                            course_controller.setCourseId(model.id)
-                            course_controller.JoinClass(model.id)
-                            FluApp.navigate("/live", {courseId:model.id, streamUrl:getStreamUrl(model.id)})
+                            courseId = model.id
+                            course_controller.setCourseId(courseId)
+                            FluApp.navigate("/live", {courseId:courseId})
                         }
                     }
 
@@ -152,7 +173,7 @@ FluScrollablePage{
                     id: over_course
                     text: "退课"
                     normalColor: "grey"
-                    hoverColor: "red"
+                    hoverColor: "#8B0000"
                     anchors{
                         right: parent.right
                         top: parent.top

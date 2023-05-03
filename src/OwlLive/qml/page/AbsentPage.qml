@@ -17,7 +17,7 @@ FluWindow {
 
     onInitArgument:
         (argument)=>{
-             name.text = argument.absentMembersName
+            name.text = argument.absentMembersName
         }
 
     FluAppBar{

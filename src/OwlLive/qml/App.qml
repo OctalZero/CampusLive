@@ -21,6 +21,7 @@ Window {
             "/register":"qrc:/page/RegisterPage.qml",
             "/createCourse":"qrc:/page/CreateCoursePage.qml",
             "/joinCourse":"qrc:/page/JoinCoursePage.qml",
+            "/selectDevice":"qrc:/page/SelectDevicePage.qml",
             "/attendance":"qrc:/page/AttendancePage.qml",
             "/absent":"qrc:/page/AbsentPage.qml",
             "/discuss":"qrc:/page/DiscussPage.qml",

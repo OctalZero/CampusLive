@@ -33,11 +33,12 @@ void DiscussController::clipText(const QString& text) {
   clipboard->setText(text);
 }
 
-const QString& DiscussController::getName() const {
+
+QString DiscussController::getName() {
   return name_;
 }
 
-const QString& DiscussController::getMessage() const {
+QString DiscussController::getMessage() {
   return message_;
 }
 

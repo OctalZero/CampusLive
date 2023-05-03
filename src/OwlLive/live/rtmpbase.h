@@ -1,9 +1,8 @@
-﻿// 实现了 RTMP 协议的基本功能，提供了连接服务器、断开连接、设置接收音视频等功能
-#ifndef RTMPBASE_H
+﻿#ifndef RTMPBASE_H
 #define RTMPBASE_H
-#include <iostream>
+#include <iostream> // c++系统文件
 
-#include "librtmp/rtmp.h"
+#include "librtmp/rtmp.h" // 其他库文件
 
 namespace LIVE {
 

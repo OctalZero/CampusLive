@@ -40,12 +40,12 @@ FluScrollablePage{
         model_playback.append({"fileName": fileName, "url": url})
     }
 
-    FluFilledButton {
-        text: "测试"
-        onClicked:  {
-            addPlayback("file", "http://120.78.82.230:80/test.flv")
-        }
-    }
+//    FluFilledButton {
+//        text: "测试"
+//        onClicked:  {
+//            addPlayback("file", "http://120.78.82.230:80/test.flv")
+//        }
+//    }
 
     Component {
         id: playback_card

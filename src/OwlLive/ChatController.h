@@ -28,7 +28,7 @@ class ChatController : public QObject {
  private:
   QNetworkAccessManager* networkManager;
   QJsonArray messages;
-  QString baseKey = "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";
+  QString baseKey = "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";
 };
 
 #endif // CHATCONTROLLER_H

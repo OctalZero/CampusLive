@@ -9,7 +9,7 @@ FluWindow {
     id:rootwindow
     width: 1000
     height: 640
-    title: "FluentUI"
+    title: "Owl Live"
     minimumWidth: 520
     minimumHeight: 460
 

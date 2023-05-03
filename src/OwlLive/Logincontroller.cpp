@@ -49,4 +49,8 @@ QString LoginController::getUserId() {
   return client_->getUserId();
 }
 
+QString LoginController::getIdentification() {
+  return client_->getIdentification();
+}
+
 

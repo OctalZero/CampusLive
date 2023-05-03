@@ -10,6 +10,7 @@ CourseController::CourseController(QObject* parent)
   // 连接与客户端控制器的信号与槽
   connect(this, &CourseController::sendToServer, client_, &Client::sendToServer);
   connect(client_, &Client::updateCoursesSuccess, this, &CourseController::updateCoursesSuccess);
+//  connect(client_, &Client::joinClassSuccess, this, &CourseController::joinClassSuccess);
 }
 
 void CourseController::SendUpdateCourses() {
@@ -72,18 +73,18 @@ void CourseController::DeselectionCourse(const QString& courseId) {
   emit sendToServer(message);
 }
 
-void CourseController::JoinClass(const QString& courseId) {
-  QJsonObject j;
-  j["type"] = MessageType::JoinClass;
-  QJsonObject data;
-  data["course_id"] = courseId;
-  data["user_id"] = client_->getUserId();
-  j["data"] = data;
-  QJsonDocument doc(j);
-  QString message = QString::fromUtf8(doc.toJson());
-  qDebug() << "JoinClass:" << message;
-  emit sendToServer(message);
-}
+//void CourseController::JoinClass(const QString& courseId) {
+//  QJsonObject j;
+//  j["type"] = MessageType::JoinClass;
+//  QJsonObject data;
+//  data["course_id"] = courseId;
+//  data["user_id"] = client_->getUserId();
+//  j["data"] = data;
+//  QJsonDocument doc(j);
+//  QString message = QString::fromUtf8(doc.toJson());
+//  qDebug() << "JoinClass:" << message;
+//  emit sendToServer(message);
+//}
 
 void CourseController::UpdateClassList(const QString& courseId) {
   QJsonObject j;
@@ -100,6 +101,10 @@ void CourseController::UpdateClassList(const QString& courseId) {
 QVariantList CourseController::getCourses() {
   return client_->getCourses();
 }
+
+//QString CourseController::getStreamAddress() {
+//  return client_->getStreamAddress();
+//}
 
 void CourseController::setCourseId(const QString& courseId) {
   client_->setCourseId(courseId);

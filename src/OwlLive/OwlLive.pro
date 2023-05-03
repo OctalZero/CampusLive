@@ -16,6 +16,12 @@ HEADERS += \
     LiveController.h \
     Network.h \
     PlaybackController.h \
+    live/audioresampler.h \
+    live/aacencoder.h \
+    live/aacrtmppackager.h \
+    live/audiocapturer.h \
+    live/codecs.h \
+    live/h264encoder.h \
     live/librtmp/amf.h \
     live/librtmp/bytes.h \
     live/librtmp/dh.h \
@@ -40,11 +46,15 @@ HEADERS += \
     live/naluloop.h \
     live/packetqueue.h \
     live/pullwork.h \
+    live/pushwork.h \
     live/qpainterdrawable.h \
     live/rtmpbase.h \
+    live/rtmppackager.h \
     live/rtmpplayer.h \
+    live/rtmppusher.h \
     live/semaphore.h \
     live/timeutil.h \
+    live/videocapturer.h \
     live/videodecodeloop.h \
     live/videooutputloop.h \
     live/videooutsdl.h \
@@ -63,6 +73,11 @@ SOURCES += \
         LiveController.cpp \
         Network.cpp \
         PlaybackController.cpp \
+        live/audioresampler.cpp \
+        live/aacencoder.cpp \
+        live/aacrtmppackager.cpp \
+        live/audiocapturer.cpp \
+        live/h264encoder.cpp \
         live/librtmp/amf.c \
         live/librtmp/hashswf.c \
         live/librtmp/log.c \
@@ -84,10 +99,13 @@ SOURCES += \
         live/naluloop.cpp \
         live/packetqueue.cpp \
         live/pullwork.cpp \
+        live/pushwork.cpp \
         live/qpainterdrawable.cpp \
         live/rtmpbase.cpp \
         live/rtmpplayer.cpp \
+        live/rtmppusher.cpp \
         live/timeutil.cpp \
+        live/videocapturer.cpp \
         live/videodecodeloop.cpp \
         live/videooutputloop.cpp \
         live/videooutsdl.cpp \
@@ -114,7 +132,7 @@ win32 {
             QMAKE_PRE_LINK += $$QMAKE_COPY $$replace(COPYDLL, /, $$QMAKE_DIR_SEP)
         }
     } else {
-        COPYDLL = $$absolute_path($${_PRO_FILE_PWD_}/../../3rdparty/Win_x86/*.dll) $$DESTDIR
+        COPYDLL = $$absolute_path($${_PRO_FILE_PWD_}/../../3rdparty/Win_x64/*.dll) $$DESTDIR
         contains(QMAKE_CC, cl) {
             QMAKE_PRE_LINK += $$QMAKE_COPY $$replace(COPYDLL, /, $$QMAKE_DIR_SEP)
         } else {
@@ -129,18 +147,17 @@ INCLUDEPATH += ../../include
 # 第三方库文件搜索路径
 LIBS += -L$$absolute_path($${_PRO_FILE_PWD_}/../../lib)
 # 链接的库文件
-LIBS += -lavcodec \
-        -lavformat \
-        -lavutil \
-        -lswresample \
+LIBS += -lavformat \
+        -lavcodec \
+        -lavdevice \
         -lavfilter \
+        -lavutil \
+        -lpostproc \
         -lswresample \
         -lswscale \
         -lSDL2 \
         -lws2_32 \
         -lwinmm
-#        -lboost_system \
-#        -lboost_thread
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
 QML_IMPORT_PATH =

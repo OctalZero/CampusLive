@@ -1448,7 +1448,6 @@ Module {
         Method {
             name: "createRegister"
             type: "QVariant"
-            Parameter { name: "window"; type: "QQuickWindow"; isPointer: true }
             Parameter { name: "path"; type: "string" }
         }
         Method { name: "firstUpdate" }

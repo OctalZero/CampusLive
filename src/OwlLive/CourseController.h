@@ -20,15 +20,17 @@ class CourseController : public QObject {
   // 向服务器发送退选课程的消息
   Q_INVOKABLE void DeselectionCourse(const QString& courseId);
   // 向服务器发送进入课堂的消息
-  Q_INVOKABLE void JoinClass(const QString& courseId);
+//  Q_INVOKABLE void JoinClass(const QString& courseId);
   // 向服务器发送更新课堂成员列表的消息
   Q_INVOKABLE void UpdateClassList(const QString& courseId);
   // 属性相关
   Q_INVOKABLE QVariantList getCourses();
+//  Q_INVOKABLE QString getStreamAddress();
   Q_INVOKABLE void setCourseId(const QString& courseId);
  signals:
   void sendToServer(const QString& message);
   void updateCoursesSuccess();
+//  void joinClassSuccess();
  private:
   Client* client_ = nullptr;
 };

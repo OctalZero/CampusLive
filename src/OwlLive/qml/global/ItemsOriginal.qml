@@ -21,15 +21,6 @@ FluObject{
         }
     }
 
-//    FluPaneItem {
-//        title:"live测试"
-//        icon:FluentIcons.Home
-//        onTap:{
-//            FluApp.navigate("/live")
-//        }
-//    }
-
-
     FluPaneItemExpander{
         title:"课程管理"
         icon:FluentIcons.Dictionary

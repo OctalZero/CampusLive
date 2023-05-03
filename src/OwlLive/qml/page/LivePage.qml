@@ -19,17 +19,47 @@ FluWindow {
 
 
     property var attendancePageRegister: registerForPageResult("/attendance")
+    property var devicesPageRegister: registerForPageResult("/selectDevice")
     property var members: []  // 课堂成员列表
     property var absentMembers: []  // 缺席学生列表
     property string courseId: ""  // 课程id
-    property string streamUrl: ""  // 课程流地址
+    property string streamAddress: ""  // 课程流地址
+    property string videoName: ""  // 视频设备
+    property string audioName: ""  // 音频设备
     property bool showControl: false  // 功能控制栏的显示
+    property bool isTeacher
+
+    LoginController {
+        id: login_controller
+    }
+
+    // 窗口关闭
+    Component.onDestruction: {
+        live_controller.ExitClass(courseId)
+        if(timer.running) timer.running = false;
+    }
+
+    Component.onCompleted: {
+        live_controller.JoinClass(courseId)
+    }
 
     onInitArgument:
         (argument)=>{
             courseId = argument.courseId
-            streamUrl = argument.streamUrl
+            streamAddress = argument.streamAddress
         }
+
+    // 从加入设备选取界面获取返回数据
+    Connections{
+        target: devicesPageRegister
+        function onResult(data) {
+            videoName = "video=" + data.videoName
+            audioName = "audio=" + data.audioName
+//            streamAddress = "rtmp://127.0.0.1/live/livestream"
+            live_controller.PushStream(streamAddress, videoName, audioName)
+            live_controller.PullStream(streamAddress)
+        }
+    }
 
     // 从考勤签到界面获取返回数据
     Connections{
@@ -63,19 +93,6 @@ FluWindow {
         model_member.append({"identity": identity, "name": name})
     }
 
-    // 窗口关闭
-    Component.onDestruction: {
-        live_controller.ExitClass(courseId)
-        if(timer.running) timer.running = flase;
-    }
-
-    Component.onCompleted: {
-//        live_controller.Broadcast(streamUrl)
-//        live_controller.Broadcast("rtmp://114.215.169.66/live/livestream")
-        live_controller.Broadcast("rtmp://127.0.0.1/live/livestream")
-//        live_controller.Broadcast("rtmp://120.78.82.230:1935/test/s")
-        live_controller.UpdateClassList(courseId)
-    }
 
     // 窗口栏
     FluAppBar{
@@ -103,12 +120,27 @@ FluWindow {
                 showControl = !showControl
             }
         }
+
         // 直播控制器
         LiveController {
             anchors.fill: parent
             id: live_controller
             width: parent.width - 200
             height: parent.height
+            onJoinClassSuccess: {
+                live_controller.UpdateClassList(courseId)
+                streamAddress = live_controller.getStreamAddress()
+                if (login_controller.getIdentification() === "teacher") {
+                    isTeacher = true
+                    live_controller.FindDevices()
+                    devicesPageRegister.launch({videoDevices:live_controller.getVideoDevices(), audioDevices:live_controller.getAudioDevices()})
+                }
+                else {
+                    isTeacher = false
+//                    streamAddress = "rtmp://127.0.0.1/live/livestream"
+                    live_controller.PullStream(streamAddress)
+                }
+            }
 
             onUpdateClassMembersSuccess: {
                 members = live_controller.getClassMembers()  // 存储成员列表
@@ -207,6 +239,7 @@ FluWindow {
 
                 FluFilledButton {
                     id: check_in
+                    disabled: !isTeacher
                     text: "发起签到"
                     onClicked: {
                         attendancePageRegister.launch()

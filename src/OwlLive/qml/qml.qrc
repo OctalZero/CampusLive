@@ -41,7 +41,6 @@
         <file>CourseInfoStudent.qml</file>
         <file>CourseInfoTeacher.qml</file>
         <file>Home.qml</file>
-        <file>MediaPlayer.qml</file>
         <file>Theme.qml</file>
         <file>ClassPlayback.qml</file>
         <file>res/image/control/AI.png</file>
@@ -49,5 +48,6 @@
         <file>res/image/control/Teacher.png</file>
         <file>res/image/control/theme.png</file>
         <file>res/image/control/Theme.png</file>
+        <file>page/SelectDevicePage.qml</file>
     </qresource>
 </RCC>

@@ -1,5 +1,4 @@
-﻿// 处理NALU的循环队列
-#ifndef NALULOOP_H
+﻿#ifndef NALULOOP_H
 #define NALULOOP_H
 
 #include "looper.h"

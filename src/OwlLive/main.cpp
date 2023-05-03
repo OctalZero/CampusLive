@@ -22,6 +22,8 @@
 int main(int argc, char* argv[]) {
   init_logger("live.log", S_INFO); // 初始化日志
   Client* client = &Client::GetClient();
+//  LiveController live;
+//  live.FindDevices();
 
 //  QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 //  QCoreApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
@@ -49,10 +51,6 @@ int main(int argc, char* argv[]) {
       QCoreApplication::exit(-1);
   }, Qt::QueuedConnection);
   engine.load(url);
-
-  // 查看缩放比例
-//  double dpr = QGuiApplication::primaryScreen()->devicePixelRatio();
-//  qDebug() << dpr;
 
   return app.exec();
 }

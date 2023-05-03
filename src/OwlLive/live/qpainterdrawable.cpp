@@ -8,7 +8,10 @@ QPainterDrawable::QPainterDrawable(QQuickItem* parent)
 QPainterDrawable::~QPainterDrawable() {
   if (dst_video_frame_.data[0])
     free(dst_video_frame_.data[0]);
-  delete img_scaler_;
+  if (img_scaler_) {
+    delete img_scaler_;
+    img_scaler_ = nullptr;
+  }
 }
 
 int QPainterDrawable::draw(const Frame* video_frame, bool, bool) {

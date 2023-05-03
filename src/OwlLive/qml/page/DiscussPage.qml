@@ -14,7 +14,7 @@ FluWindow {
     title:"课堂讨论区"
 
     property string courseId: ""  // 课程id
-    property string send_name: ""  // 发送信息者姓名
+    property string sendName: ""  // 发送信息者姓名
 
     onInitArgument:
         (argument)=>{
@@ -25,7 +25,8 @@ FluWindow {
     DiscussController{
         id: discuss_controller
         onDiscussResult: {
-            appendMessage(false,discuss_controller.getMessage(), discuss_controller.getName())
+            sendName = discuss_controller.getName()
+            appendMessage(false,discuss_controller.getMessage())
         }
     }
 
@@ -101,7 +102,7 @@ FluWindow {
                 FluText {
                     id:item_name
                     fontStyle: FluText.SubTitle
-                    text: isMy ? "我" : send_name
+                    text: isMy ? "我" : sendName
                     color: "#2F4F4F"
                     anchors{
                         right: isMy ? parent.right : undefined
@@ -196,7 +197,7 @@ FluWindow {
             width: 60
             onClicked:{
                 var text = textbox.text
-                appendMyMessage(true,text)
+                appendMessage(true,text)
                 discuss_controller.SendDiscussInfo(courseId, text)
                 textbox.clear()
             }
@@ -221,14 +222,7 @@ FluWindow {
         }
     }
 
-    function appendMyMessage(isMy,text) {
-        model_message.append({isMy:isMy,text:text})
-        list_message.positionViewAtEnd()
-    }
-
-    function appendMessage(isMy,text,sendName){
-        console.log("name:" + sendName)
-        send_name = sendName
+    function appendMessage(isMy,text) {
         model_message.append({isMy:isMy,text:text})
         list_message.positionViewAtEnd()
     }

@@ -13,8 +13,8 @@ class DiscussController : public QObject {
   // 文本剪切板
   Q_INVOKABLE void clipText(const QString& text);
   // 属性相关
-  Q_INVOKABLE const QString& getName() const;
-  Q_INVOKABLE const QString& getMessage() const;
+  Q_INVOKABLE QString getName();
+  Q_INVOKABLE QString getMessage();
  signals:
   void sendToServer(const QString& message) ;
   void discussResult();

@@ -4,13 +4,27 @@ import QtQuick.Window 2.15
 import QtQuick.Controls 2.15
 import "qrc:///global/"
 import FluentUI 1.0
+import Controller 1.0
 
 FluScrollablePage{
-
-
     leftPadding:10
     rightPadding:0
     bottomPadding:20
+
+    property string titleText: ""
+
+    Component.onCompleted: {
+        if(login_controller.getIdentification() === "teacher") {
+            titleText = "Owl Live (教师端)"
+        }
+        else {
+            titleText = "Owl Live (学生端)"
+        }
+    }
+
+    LoginController {
+        id: login_controller
+    }
 
     ListModel{
         id:model_header
@@ -43,7 +57,7 @@ FluScrollablePage{
         }
 
         FluText{
-            text:"Owl Live 在线教学系统"
+            text:titleText
             fontStyle: FluText.TitleLarge
             anchors{
                 top: parent.top

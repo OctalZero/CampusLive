@@ -15,6 +15,7 @@ FluWindow {
     onInitArgument:
         (argument)=>{
             player.source = argument.source
+//            player.source = "http://120.78.82.230:80/1-1.flv"
         }
 
     FluAppBar{

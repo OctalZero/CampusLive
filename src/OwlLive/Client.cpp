@@ -46,6 +46,13 @@ QString Client::getCourseId() {
   return course_id_;
 }
 
+QString Client::getStreamAddress() {
+  return stream_address_;
+}
+
+QString Client::getIdentification() {
+  return identification_;
+}
 
 QVariantList Client::getCourses() {
   return courses_;
@@ -74,6 +81,7 @@ void Client::setUserId(const QString& userId) {
 void Client::ProcessLoginResult(const QJsonObject& data) {
   QString ret = data["result"].toString();
   if (ret == "success") {
+    identification_ = data["identification"].toString();
     emit loginSuccess();
     qDebug() << "login success";
   } else if (ret == "failed") {
@@ -108,7 +116,7 @@ void Client::ProcessUpdateCoursesResult(const QJsonObject& data) {
     c.insert("name", course["name"].toString());
     c.insert("status", course["status"].toBool());
     c.insert("master", course["master"].toString());
-    c.insert("stream_address", course["stream_address"].toString());
+//    c.insert("stream_address", course["stream_address"].toString());
     courses_ .append(c);
   }
 
@@ -152,7 +160,13 @@ void Client::ProcessDeselectionCourseResult(const QJsonObject& data) {
 }
 
 void Client::ProcessJoinClassResult(const QJsonObject& data) {
-  ProcessUpdateClassListResult(data);
+  QString ret = data["result"].toString();
+  if (ret == "success") {
+    stream_address_ = data["stream_address"].toString();
+    emit joinClassSuccess();
+  } else if (ret == "failed") {
+    // TODO:更新失败先不考虑
+  }
 }
 
 void Client::ProcessUpdateClassListResult(const QJsonObject& data) {

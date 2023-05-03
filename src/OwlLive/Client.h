@@ -19,6 +19,8 @@ class Client : public QObject {
   // 属性相关
   QString getUserId();
   QString getCourseId();
+  QString getStreamAddress();
+  QString getIdentification();
   QVariantList getCourses();
   QVariantList getClassMembers();
   QVariantList getAbsentMembers();
@@ -60,6 +62,8 @@ class Client : public QObject {
   void registerSuccess();
   // 更新课程成功
   void updateCoursesSuccess();
+  // 加入课堂成功
+  void joinClassSuccess();
   // 更新课堂成员成功
   void updateClassMembersSuccess();
   // 显示考勤签到结果
@@ -77,7 +81,9 @@ class Client : public QObject {
  private:
   Network* network_ = nullptr;
   QString user_id_ = "";
+  QString identification_ = "";
   QString course_id_ = "";
+  QString stream_address_ = "";
   QVariantList courses_;
   QVariantList class_members_;
   QVariantList absent_members_;
